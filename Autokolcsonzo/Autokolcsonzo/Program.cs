@@ -26,14 +26,14 @@ namespace Autokolcsonzo
 			flotta[1] = kettoAuto;
 			flotta[2] = haromAuto;
 
-			flotta[3] = ramdomUjAuto(0);
-			flotta[4] = ramdomUjAuto(0);
+			flotta[3] = ramdomUjAuto(1);
+			flotta[4] = ramdomUjAuto(2);
 
 			for (int i = 0; i < 5; i++)
 			{
 				Console.Write(flotta[i].getRendszam() + ";");
-				Console.Write(flotta[i].getGyarto());
-				Console.Write(flotta[i].getGyartasEve()+ ";");
+                Console.Write(flotta[i].getGyarto());
+                Console.Write(flotta[i].getGyartasEve()+ ";");
 				Console.Write(flotta[i].getUtasSzam()+ ";");
 				Console.Write(flotta[i].getuzemanyagMennyiseg()+ ";");
 				Console.Write(flotta[i].getFogyasztas()+ ";");
@@ -41,6 +41,9 @@ namespace Autokolcsonzo
 				Console.Write(flotta[i].getBerelheto()+";");
 				Console.Write(flotta[i].getKategoria()+ ";");
 			}
+			flotta[5] = randomHasznaltAuto(3);
+			flotta[6] = randomHasznaltAuto(4);
+
 			Console.ReadKey();
 		}
 
@@ -81,9 +84,9 @@ namespace Autokolcsonzo
 		}
 
 
-		public KolcsonozhetoAuto randomUjauto()
+		public static KolcsonozhetoAuto randomHasznaltAuto(int seed)
         {
-			KolcsonozhetoAuto auto = ramdomUjAuto(1);
+			KolcsonozhetoAuto auto = ramdomUjAuto(seed);
 
 			if (auto.getGyartasEve()==2021)
             {
@@ -94,5 +97,6 @@ namespace Autokolcsonzo
 
 			return auto;
         }
+
 	}
 }
