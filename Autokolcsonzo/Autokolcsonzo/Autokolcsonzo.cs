@@ -46,7 +46,6 @@ namespace Autokolcsonzo
             kategoria = kat;
         }
 
-
         /*
          * Getter-setter metódusok
          */
@@ -78,7 +77,7 @@ namespace Autokolcsonzo
 
         public void setBerelheto(bool szabad) { berelheto = szabad; }
 
-
+        public void setGyartasiIdo(int ev) { gyartasEve = ev; }
 
         /*
          * tagfüggvények
@@ -89,10 +88,6 @@ namespace Autokolcsonzo
 
 
         //public teleTankolas() {}
-
-
-
-
     }
 }
 

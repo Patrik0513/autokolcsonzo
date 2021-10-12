@@ -26,27 +26,30 @@ namespace Autokolcsonzo
 			flotta[1] = kettoAuto;
 			flotta[2] = haromAuto;
 
-			flotta[3] = ramdomUjAuto();
-			flotta[4] = ramdomUjAuto();
+			flotta[3] = ramdomUjAuto(1);
+			flotta[4] = ramdomUjAuto(2);
 
 			for (int i = 0; i < 5; i++)
 			{
 				Console.Write(flotta[i].getRendszam() + ";");
-				Console.Write(flotta[i].getGyarto());
-				Console.Write(flotta[i].getGyartasEve());
-				Console.Write(flotta[i].getUtasSzam());
-				Console.Write(flotta[i].getuzemanyagMennyiseg());
-				Console.Write(flotta[i].getFogyasztas());
-				Console.Write(flotta[i].getMegtettKm());
-				Console.Write(flotta[i].getBerelheto());
-				Console.Write(flotta[i].getKategoria());
+                Console.Write(flotta[i].getGyarto());
+                Console.Write(flotta[i].getGyartasEve()+ ";");
+				Console.Write(flotta[i].getUtasSzam()+ ";");
+				Console.Write(flotta[i].getuzemanyagMennyiseg()+ ";");
+				Console.Write(flotta[i].getFogyasztas()+ ";");
+				Console.Write(flotta[i].getMegtettKm()+ ";");
+				Console.Write(flotta[i].getBerelheto()+";");
+				Console.Write(flotta[i].getKategoria()+ ";");
 			}
+			flotta[5] = randomHasznaltAuto(3);
+			flotta[6] = randomHasznaltAuto(4);
+
 			Console.ReadKey();
 		}
 
-		public static KolcsonozhetoAuto ramdomUjAuto()
+		public static KolcsonozhetoAuto ramdomUjAuto(int seed)
 		{
-			Random gen = new Random();
+			Random gen = new Random(seed);
 
 			string[] gyartok = {
 			"Maserati", "Jeep", "Ferrari", "Suzuki", "Volvo", "Lada"
@@ -79,5 +82,21 @@ namespace Autokolcsonzo
 			KolcsonozhetoAuto auto = new KolcsonozhetoAuto();
 			return auto;
 		}
+
+
+		public static KolcsonozhetoAuto randomHasznaltAuto(int seed)
+        {
+			KolcsonozhetoAuto auto = ramdomUjAuto(seed);
+
+			if (auto.getGyartasEve()==2021)
+            {
+				auto.setGyartasiIdo(auto.getGyartasEve() - 4);
+            }
+
+			auto.setMegtettKm(362000);
+
+			return auto;
+        }
+
 	}
 }
